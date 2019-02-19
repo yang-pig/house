@@ -26,7 +26,7 @@ public class UserController {
         // 用户验证
         ResultMsg resultMsg = UserHelper.validate(account);
         if (resultMsg.isSuccess() && userService.addAccount(account)) {
-//            modelMap.put("email", account.getEmail());
+            modelMap.put("email", account.getEmail());
             return "/user/accounts/registerSubmit";
         } else {
             return "redirect:/accounts/register?" + resultMsg.asUrlParams();
