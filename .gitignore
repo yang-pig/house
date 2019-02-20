@@ -1,3 +1,6 @@
 logs/
 imgs/
 .idea/
+house-web/target/
+house-common/target/
+house-biz/target/

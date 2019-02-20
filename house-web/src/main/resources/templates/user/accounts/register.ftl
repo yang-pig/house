@@ -25,6 +25,57 @@
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
                     <h3>Account Type</h3>
+                    <#--<form role="form" id="form-create-account" method="post" enctype="multipart/form-data" action="/accounts/register">-->
+                        <#--<div class="radio" id="create-account-user">-->
+                            <#--<label>-->
+                                <#--<input type="radio" id="account-type-user" name="account-type" required>Regular User-->
+                            <#--</label>-->
+                        <#--</div>-->
+                        <#--<div class="radio" id="agent-switch" data-agent-state="">-->
+                            <#--<label>-->
+                                <#--<input type="radio" id="account-type-agent" name="account-type" required>Agent-->
+                            <#--</label>-->
+                        <#--</div>-->
+                        <#--<div id="agency" class="disabled">-->
+                            <#--<div class="form-group">-->
+                                <#--<label for="account-agency">Select your agency:</label>-->
+                                <#--<select name="account-agency" id="account-agency">-->
+                                    <#--<option value="">Agency</option>-->
+                                    <#--<option value="1">Estate+</option>-->
+                                    <#--<option value="2">Northfolk Eastate</option>-->
+                                    <#--<option value="3">Maximum Properties</option>-->
+                                    <#--<option value="4">Edd's Homes</option>-->
+                                    <#--<option value="5">Will & Scotch</option>-->
+                                <#--</select>-->
+                            <#--</div><!-- /.form-group &ndash;&gt;-->
+                        <#--</div>-->
+                        <#--<hr>-->
+                        <#--<div class="form-group">-->
+                            <#--<label for="form-create-account-full-name">Full Name:</label>-->
+                            <#--<input type="text" class="form-control" name="name" id="form-create-account-full-name" required>-->
+                        <#--</div><!-- /.form-group &ndash;&gt;-->
+                        <#--<div class="form-group">-->
+                            <#--<label for="form-create-account-email">Email:</label>-->
+                            <#--<input type="email" class="form-control" name="email" id="form-create-account-email" required>-->
+                        <#--</div><!-- /.form-group &ndash;&gt;-->
+                        <#--<div class="form-group">-->
+                            <#--<label for="form-create-account-password">Password:</label>-->
+                            <#--<input type="password" class="form-control" name="" id="form-create-account-password" required>-->
+                        <#--</div><!-- /.form-group &ndash;&gt;-->
+                        <#--<div class="form-group">-->
+                            <#--<label for="form-create-account-confirm-password">Confirm Password:</label>-->
+                            <#--<input type="password" class="form-control" id="form-create-account-confirm-password" required>-->
+                        <#--</div><!-- /.form-group &ndash;&gt;-->
+                        <#--<div class="form-group">-->
+                            <#--<label for="form-create-account-email">用户头像:</label>-->
+                            <#--<input id="file-upload" type="file" class="file" multiple="true" data-show-upload="false" data-show-caption="false" data-show-remove="false" accept="image/jpeg,image/png" data-browse-class="btn btn-default" data-browse-label="Browse Images" name="avatarFile" required>-->
+                            <#--<figure class="note"><strong>Hint:</strong> You can upload all images at once!</figure>-->
+                        <#--</div>-->
+
+                        <#--<div class="form-group clearfix">-->
+                            <#--<button type="submit" class="btn pull-right btn-default" id="account-submit">注册账号</button>-->
+                        <#--</div><!-- /.form-group &ndash;&gt;-->
+                    <#--</form>-->
                     <form role="form" id="form-create-account" method="post" enctype="multipart/form-data" action="/accounts/register">
                         <div class="radio" id="create-account-user">
                             <label>
@@ -36,14 +87,16 @@
                                 <input type="radio" value="2" id="account-type-agent" name="type" required>经纪人
                             </label>
                         </div>
-                         <div id="agency" class="disabled">
+                        <div id="agency" class="disabled">
                             <div class="form-group">
-                                <label for="account-agency">选择经纪机构:</label>
-                                <select name="agencyId" id="agencyId">
-                                      <option value="0" >请选择经纪机构</option>
-                                     <#list agencyList as agency>
-                                        <option value="${agency.id}" >${agency.name}</option>
-                                     </#list>
+                                <label for="account-agency">Select your agency:</label>
+                                <select name="account-agency" id="account-agency">
+                                    <option value="">Agency</option>
+                                    <option value="1">Estate+</option>
+                                    <option value="2">Northfolk Eastate</option>
+                                    <option value="3">Maximum Properties</option>
+                                    <option value="4">Edd's Homes</option>
+                                    <option value="5">Will & Scotch</option>
                                 </select>
                             </div><!-- /.form-group -->
                         </div>
@@ -70,7 +123,7 @@
                         </div><!-- /.form-group -->
                          <div class="form-group">
                             <label for="form-create-account-email">自我介绍:</label>
-                            <textarea class="form-control" name="aboutme"></textarea> 
+                            <textarea class="form-control" name="aboutme"></textarea>
                         </div>
 
                         <div class="form-group">
@@ -78,13 +131,13 @@
                             <input id="file-upload" type="file" class="file" multiple="true" data-show-upload="false" data-show-caption="false" data-show-remove="false" accept="image/jpeg,image/png" data-browse-class="btn btn-default" data-browse-label="Browse Images" name="avatarFile" required>
                             <figure class="note"><strong>Hint:</strong> You can upload all images at once!</figure>
                         </div>
-                              
-                        
+
+
                         <div class="form-group clearfix">
                             <button type="submit" class="btn pull-right btn-default" id="account-submit">注册账号</button>
                         </div><!-- /.form-group -->
-                        
-                        
+
+
 
                     </form>
                     <hr>

@@ -20,7 +20,7 @@ public class UserController {
     public String accountsRegister(User account, ModelMap modelMap)
     {
         if (account == null || account.getName() == null) {
-            return "accounts/register";
+            return "/user/accounts/register";
         }
 
         // 用户验证
@@ -29,6 +29,7 @@ public class UserController {
             modelMap.put("email", account.getEmail());
             return "/user/accounts/registerSubmit";
         } else {
+            System.out.println("11111");
             return "redirect:/accounts/register?" + resultMsg.asUrlParams();
         }
 

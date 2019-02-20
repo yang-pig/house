@@ -7,6 +7,12 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
     <link href="/static/assets/fonts/font-awesome.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/static/assets/bootstrap/css/bootstrap.css" type="text/css">
+
+    <link rel="stylesheet" href="/static/assets/css/bootstrap-select.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/assets/css/magnific-popup.css" type="text/css">
+
+    <link rel="stylesheet" href="/static/assets/css/jquery.slider.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/assets/css/owl.carousel.css" type="text/css">
     <link rel="stylesheet" href="/static/assets/css/style.css" type="text/css">
     <link rel="stylesheet" href="/static/assets/stylesheets/style.css" type="text/css">
     <title>Zoner</title>
@@ -331,6 +337,8 @@
 <script type="text/javascript" src="/static/assets/js/draggable-0.1.js"></script>
 <script type="text/javascript" src="/static/assets/js/jquery.slider.js"></script>
 <script type="text/javascript" src="/static/assets/js/custom.js"></script>
+<script type="text/javascript" src="/static/assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/static/assets/js/icheck.min.js"></script>
 <!--[if gt IE 8]>
 <script type="text/javascript" src="/static/assets/js/ie.js"></script>
 <![endif]-->
