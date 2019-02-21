@@ -13,4 +13,6 @@ public interface UserMapper {
     public int insert(User account);
 
     public int delete(String email);
+
+    public int update(User updateUser);
 }

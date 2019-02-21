@@ -84,7 +84,7 @@ public class MailService {
     String randomKey = RandomStringUtils.randomAlphabetic(10);
     registerCache.put(randomKey, email);
     String url = "http://" + domainName + "/accounts/verify?key=" + randomKey;
-    sendMail("房产平台激活邮件", url, email);
+    sendMail("房产平台激活邮件111", url, email);
   }
   
   /**
@@ -108,18 +108,18 @@ public class MailService {
     resetCache.invalidate(key);
   }
 
-//  public boolean enable(String key) {
-//    String email = registerCache.getIfPresent(key);
-//    if (StringUtils.isBlank(email)) {
-//      return false;
-//    }
-//    User updateUser = new User();
-//    updateUser.setEmail(email);
-//    updateUser.setEnable(1);
-//    userMapper.update(updateUser);
-//    registerCache.invalidate(key);
-//    return true;
-//  }
+  public boolean enable(String key) {
+    String email = registerCache.getIfPresent(key);
+    if (StringUtils.isBlank(email)) {
+      return false;
+    }
+    User updateUser = new User();
+    updateUser.setEmail(email);
+    updateUser.setEnable(1);
+    userMapper.update(updateUser);
+    registerCache.invalidate(key);
+    return true;
+  }
 
 
 
