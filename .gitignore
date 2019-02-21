@@ -4,3 +4,7 @@ imgs/
 house-web/target/
 house-common/target/
 house-biz/target/
+house-biz/house-biz.iml
+house-web/house-web.iml
+house-common/house-common.iml
+house-parent.iml
