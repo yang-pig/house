@@ -33,7 +33,8 @@ public class UserService {
     private String domainName;
 
 
-
+    @Value("${file.prefix}")
+    private String imgPrefix;
 
     @Resource
     private UserMapper userMapper;
@@ -68,6 +69,33 @@ public class UserService {
 
     public boolean enable(String key) {
         return mailService.enable(key);
+    }
+
+    /**
+     * 用户名密码验证
+     *
+     * @param username
+     * @param password
+     * @return
+     */
+    public User auth(String username, String password) {
+        User user = new User();
+        user.setEmail(username);
+        user.setPasswd(HashUtils.encryPassword(password));
+        user.setEnable(1);
+        List<User> list = getUserByQuery(user);
+        if (!list.isEmpty()) {
+            return list.get(0);
+        }
+        return null;
+    }
+
+    public List<User> getUserByQuery(User user) {
+        List<User> list = userMapper.selectUsersByQuery(user);
+        list.forEach(u -> {
+            u.setAvatar(imgPrefix + u.getAvatar());
+        });
+        return list;
     }
 }
 
