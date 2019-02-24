@@ -323,33 +323,54 @@
     </footer>
 </#macro>
 
+<#macro paging pagination>
+<ul class="pagination">
+    <#list pagination.pages as page>
+        <#if pagination.pageNum==page>
+            <li class="active"><a href="#">${page}</a></li>
+        <#else>
+            <li><a href="javascript:void(0)"  onclick="nextPage(${page},${pagination.pageSize})">${page}</a></li>
+        </#if>
+    </#list>
+</ul><!-- /.pagination-->
+</#macro>
+
 <#macro js>
 <script type="text/javascript" src="/static/assets/js/jquery-2.1.0.min.js"></script>
 <script type="text/javascript" src="/static/assets/js/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="/static/assets/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/static/assets/js/smoothscroll.js"></script>
+<!-- <script type="text/javascript" src="/static/assets/js/markerwithlabel_packed.js"></script> -->
+
+<script type="text/javascript" src="/static/assets/js/owl.carousel.min.js"></script>
 <script type="text/javascript" src="/static/assets/js/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="/static/assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/static/assets/js/jquery.placeholder.js"></script>
+<script type="text/javascript" src="/static/assets/js/icheck.min.js"></script>
+<script type="text/javascript" src="/static/assets/js/jquery.vanillabox-0.1.5.min.js"></script>
 <script type="text/javascript" src="/static/assets/js/retina-1.1.0.min.js"></script>
+<script type="text/javascript" src="/static/assets/js/jquery.raty.min.js"></script>
+<script type="text/javascript" src="/static/assets/js/jquery.magnific-popup.min.js"></script>
 <script type="text/javascript" src="/static/assets/js/jshashtable-2.1_src.js"></script>
 <script type="text/javascript" src="/static/assets/js/jquery.numberformatter-1.2.3.js"></script>
 <script type="text/javascript" src="/static/assets/js/tmpl.js"></script>
 <script type="text/javascript" src="/static/assets/js/jquery.dependClass-0.1.js"></script>
 <script type="text/javascript" src="/static/assets/js/draggable-0.1.js"></script>
 <script type="text/javascript" src="/static/assets/js/jquery.slider.js"></script>
+<script type="text/javascript" src="/static/assets/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/static/assets/js/fileinput.min.js"></script>
+<script type="text/javascript" src="/static/assets/js/custom-map.js"></script>
 <script type="text/javascript" src="/static/assets/js/custom.js"></script>
-<script type="text/javascript" src="/static/assets/js/jquery.validate.min.js"></script>
-<script type="text/javascript" src="/static/assets/js/icheck.min.js"></script>
-<!--[if gt IE 8]>
-<script type="text/javascript" src="/static/assets/js/ie.js"></script>
-<![endif]-->
+<script type="text/javascript" src="/static/assets/js/toastr.js"></script>
+<script type="text/javascript" src="/static/common/common.js"></script>
 </#macro>
 
-<#macro pagination>
-    <ul class="pagination">
-        <li class="active"><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-    </ul><!-- /.pagination-->
-</#macro>
+<#--<#macro pagination>-->
+    <#--<ul class="pagination">-->
+        <#--<li class="active"><a href="#">1</a></li>-->
+        <#--<li><a href="#">2</a></li>-->
+        <#--<li><a href="#">3</a></li>-->
+        <#--<li><a href="#">4</a></li>-->
+        <#--<li><a href="#">5</a></li>-->
+    <#--</ul><!-- /.pagination&ndash;&gt;-->
+<#--</#macro>-->

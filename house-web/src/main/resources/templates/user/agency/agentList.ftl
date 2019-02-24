@@ -1,92 +1,63 @@
 <!DOCTYPE html>
+
 <html lang="en-US">
-<@common.header/>
-<body class="page-sub-page page-contact" id="page-top">
+ <@common.header/>
+
+<body class="page-sub-page page-agents-listing" id="page-top">
 <!-- Wrapper -->
 <div class="wrapper">
+    <!-- Navigation -->
     <@common.nav/>
-    <!-- end Navigation -->
     <!-- Page Content -->
     <div id="page-content">
         <!-- Breadcrumb -->
         <div class="container">
             <ol class="breadcrumb">
                 <li><a href="#">Home</a></li>
-                <li class="active">Contact</li>
+                <li><a href="#">Agents</a></li>
+                <li class="active">经纪人列表</li>
             </ol>
         </div>
         <!-- end Breadcrumb -->
 
         <div class="container">
             <div class="row">
-                <!-- Contact -->
+                <!-- Agent Detail -->
                 <div class="col-md-9 col-sm-9">
-                    <section id="agent-detail">
-                        <header><h1>Contact Us</h1></header>
-                        <section id="contact-information">
-                            <div class="row">
-                                <div class="col-md-4 col-sm-5">
-                                    <section id="address">
-                                        <header><h3>Address</h3></header>
-                                        <address>
-                                            <strong>Your Company</strong><br>
-                                            4877 Spruce Drive<br>
-                                            West Newton, PA 15089
-                                        </address>
-                                        +1 (734) 123-4567<br>
-                                        <a href="#">hello@example.com</a><br>
-                                        <strong>skype: </strong>your.company
-                                    </section><!-- /#address -->
-                                    <section id="social">
-                                        <header><h3>Social Profiles</h3></header>
-                                        <div class="agent-social">
-                                            <a href="#" class="fa fa-twitter btn btn-grey-dark"></a>
-                                            <a href="#" class="fa fa-facebook btn btn-grey-dark"></a>
-                                            <a href="#" class="fa fa-linkedin btn btn-grey-dark"></a>
-                                        </div>
-                                    </section><!-- /#social -->
-                                </div><!-- /.col-md-4 -->
-                                <div class="col-md-8 col-sm-7">
-                                    <header><h3>Where We Are</h3></header>
-                                    <div id="contact-map"></div>
-                                </div><!-- /.col-md-8 -->
-                            </div><!-- /.row -->
-                        </section><!-- /#agent-info -->
-                        <hr class="thick">
-                        <section id="form">
-                            <header><h3>Send Us a Message</h3></header>
-                            <form role="form" id="form-contact" method="post"  class="clearfix">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="form-contact-name">Your Name<em>*</em></label>
-                                            <input type="text" class="form-control" id="form-contact-name" name="form-contact-name" required>
-                                        </div><!-- /.form-group -->
-                                    </div><!-- /.col-md-6 -->
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="form-contact-email">Your Email<em>*</em></label>
-                                            <input type="email" class="form-control" id="form-contact-email" name="form-contact-email" required>
-                                        </div><!-- /.form-group -->
-                                    </div><!-- /.col-md-6 -->
-                                </div><!-- /.row -->
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="form-contact-message">Your Message<em>*</em></label>
-                                            <textarea class="form-control" id="form-contact-message" rows="8" name="form-contact-message" required></textarea>
-                                        </div><!-- /.form-group -->
-                                    </div><!-- /.col-md-12 -->
-                                </div><!-- /.row -->
-                                <div class="form-group clearfix">
-                                    <button type="submit" class="btn pull-right btn-default" id="form-contact-submit">Send a Message</button>
-                                </div><!-- /.form-group -->
-                                <div id="form-status"></div>
-                            </form><!-- /#form-contact -->
-                        </section>
-                    </section><!-- /#agent-detail -->
+                    <section id="agents-listing">
+                        <header><h1>经纪人列表</h1></header>
+                        <div class="row">
+                          <#list ps.list as agent>
+                            <div class="col-md-12 col-lg-6" >
+                                <div class="agent">
+                                    <a href="/agency/agentDeatil?id=${agent.id!}" class="agent-image"><img alt="" src="${(agent.avatar)!}"></a>
+                                    <div class="wrapper">
+                                        <header><a href="/agency/agentDetail"><h2>${agent.name!}</h2></a></header>
+                                        <dl>
+                                            <dt>Phone:</dt>
+                                            <dd>${agent.phone}</dd>
+                                            <dt>Email:</dt>
+                                            <dd><a href="mailto:#">${agent.email!}</a></dd>
+                                            <dt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</dt>
+                                            <dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</dd>
+                                            <dt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</dt>
+                                            <dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</dd>
+                                        </dl>
+                                    </div>
+                                </div><!-- /.agent -->
+                            </div><!-- /.col-md-12 -->
+
+
+
+                          </#list>
+                        </div><!-- /.row -->
+                    </section><!-- /#agents-listing -->
+                    <!-- Pagination -->
+                    <div class="center">
+                        <@common.paging ps.pagination/>
+                    </div><!-- /.center-->
                 </div><!-- /.col-md-9 -->
-                <!-- end Contact -->
+                <!-- end Agent Detail -->
 
                 <!-- sidebar -->
                 <div class="col-md-3 col-sm-3">
@@ -210,12 +181,27 @@
         </div><!-- /.container -->
     </div>
     <!-- end Page Content -->
+    <!-- Page Footer -->
     <@common.footer/>
+    <!-- end Page Footer -->
 </div>
 
 <@common.js/>
-<script>
-
-</script>
+<!--[if gt IE 8]>
+<script type="text/javascript" src="/assets/js/ie.js"></script>
+<![endif]-->
+ <script  type="text/javascript" >
+    $(document).ready(function() {
+          var errorMsg   = "${errorMsg!""}";
+          var successMsg = "${successMsg!""}";
+          if(errorMsg){ 
+              errormsg("error",errorMsg);
+          }
+          if(successMsg) {
+              successmsg("success",successMsg);
+          }
+        })
+        
+ </script>
 </body>
 </html>
